@@ -5,7 +5,10 @@
 int main()
 {
     FILE* input = fopen("input", "r");
-    if (!input) return 1;
+    if (!input) {
+        fprintf(stderr, "can't open input file\n");
+        return 1;
+    }
     unsigned long long int start, end, i, password = 0;
     int digNum;
 

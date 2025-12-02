@@ -15,7 +15,10 @@ int main()
     //
     // Part one
     //
-    if (!input) return 1;
+    if (!input) {
+        fprintf(stderr, "can't open input file\n");
+        return 1;
+    }
 
     while (fgets(curLine, 6, input)) {
         sscanf(curLine, "%c%d", &instruction.direction, &instruction.turns);
