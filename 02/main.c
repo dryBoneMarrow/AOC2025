@@ -5,6 +5,7 @@
 int main()
 {
     FILE* input = fopen("input", "r");
+    if (!input) return 1;
     unsigned long long int start, end, i, password = 0;
     int digNum;
 
@@ -12,6 +13,7 @@ int main()
     // Part One
     //
 
+    // Approach of part two imo cleaner
     while (fscanf(input, "%llu-%llu,", &start, &end) != EOF) {
         for (i = start; i <= end; i++) {
             digNum = 1;
