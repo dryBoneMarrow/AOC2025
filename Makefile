@@ -6,5 +6,5 @@ all: 01 02
 01/main: 01/main.c
 	cc 01/main.c -o 01/main
 02/main: 02/main.c
-	cc -lm 02/main.c -o 02/main
+	cc 02/main.c -o 02/main
 	

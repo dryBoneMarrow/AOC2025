@@ -1,6 +1,15 @@
-#include <math.h>
+// #include <math.h>
 #include <stdio.h>
 #include <string.h>
+
+long long int pow10int(int a)
+{
+    long long int b = 1;
+    for (int i = 0; i < a; i++) {
+        b *= 10;
+    }
+    return b;
+}
 
 int main()
 {
@@ -20,11 +29,11 @@ int main()
     while (fscanf(input, "%llu-%llu,", &start, &end) != EOF) {
         for (i = start; i <= end; i++) {
             digNum = 1;
-            while ((long long int)(i / pow(10, digNum)))
+            while ((long long int)(i / pow10int(digNum)))
                 digNum++;
             if (digNum % 2) continue;
-            if ((long long int)(i / pow(10, (int)(digNum / 2)))
-                == (long long int)(i % (int)pow(10, (int)(digNum / 2)))) {
+            if ((long long int)(i / pow10int((int)(digNum / 2)))
+                == (long long int)(i % (int)pow10int((int)(digNum / 2)))) {
                 password += i;
                 // printf("%llu\n", i);
             }
