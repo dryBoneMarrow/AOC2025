@@ -8,3 +8,6 @@ all: 01 02
 02/main: 02/main.c
 	cc 02/main.c -o 02/main
 	
+clean:
+	rm 01/main
+	rm 02/main
