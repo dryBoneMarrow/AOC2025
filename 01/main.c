@@ -152,7 +152,7 @@ int main()
 
     printf("Part Two(II): %d (Ticks:%llu)\n", counter, (long long unsigned)(end2 - end1));
     printf("=> Second approach to Part two is %.2Lf%% faster :)\n",
-        (long double)(end1 - start) / (long double)(end2 - end1) * 100);
+        (long double)(end1 - start) / (long double)(end2 - end1) * 100 - 100);
 
     fclose(input);
     return 0;
