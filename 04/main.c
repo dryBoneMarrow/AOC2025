@@ -11,10 +11,9 @@ int main()
         fprintf(stderr, "Couldn't read input file\n");
         return 1;
     }
-    char input[MAX_FILESIZE + 1];
-    fread(input, 1, MAX_FILESIZE, inputFile);
+    char input[MAX_FILESIZE];
+    int inputLength = (int)fread(input, 1, MAX_FILESIZE, inputFile);
     int i, neighbours, counter = 0;
-    int inputLength = (int)strlen(input);
     int lineLength = (int)(strchr(input, '\n') - input) + 1;
     //
     // Part One
@@ -24,15 +23,19 @@ int main()
         if (input[i] != '@') continue;
         neighbours = 0;
 
+        // clang-format off: if statements look cleaner like this (actually they don't but I won't change it again (see sunk-cost fallacy))
+
         // Order: starting top left clockwise
-        if (i - lineLength - 1 >= 0 && input[i - lineLength - 1] == '@') neighbours++;
-        if (i - lineLength >= 0 && input[i - lineLength] == '@') neighbours++;
-        if (i - lineLength + 1 >= 0 && input[i - lineLength + 1] == '@') neighbours++;
-        if (input[i + 1] == '@') neighbours++;
-        if (i + lineLength + 1 < inputLength && input[i + lineLength + 1] == '@') neighbours++;
-        if (i + lineLength < inputLength && input[i + lineLength] == '@') neighbours++;
-        if (i + lineLength - 1 < inputLength && input[i + lineLength - 1] == '@') neighbours++;
-        if (i - 1 >= 0 && input[i - 1] == '@') neighbours++;
+        if (i - lineLength - 1 >= 0           && input[i - lineLength - 1] == '@') neighbours++;
+        if (i - lineLength     >= 0           && input[i - lineLength    ] == '@') neighbours++;
+        if (i - lineLength + 1 >= 0           && input[i - lineLength + 1] == '@') neighbours++;
+        if (                                     input[i              + 1] == '@') neighbours++;
+        if (i + lineLength + 1 <  inputLength && input[i + lineLength + 1] == '@') neighbours++;
+        if (i + lineLength     <  inputLength && input[i + lineLength    ] == '@') neighbours++;
+        if (i + lineLength - 1 <  inputLength && input[i + lineLength - 1] == '@') neighbours++;
+        if (i              - 1 >= 0           && input[i              - 1] == '@') neighbours++;
+
+        // clang-format on
 
         if (neighbours < 4) counter++;
     }
@@ -53,15 +56,19 @@ int main()
             if (input[i] != '@') continue;
             neighbours = 0;
 
+            // clang-format off: if statements look cleaner like this (actually they don't but I won't change it again (see sunk-cost fallacy))
+
             // Order: starting top left clockwise
-            if (i - lineLength - 1 >= 0 && input[i - lineLength - 1] == '@') neighbours++;
-            if (i - lineLength >= 0 && input[i - lineLength] == '@') neighbours++;
-            if (i - lineLength + 1 >= 0 && input[i - lineLength + 1] == '@') neighbours++;
-            if (input[i + 1] == '@') neighbours++;
-            if (i + lineLength + 1 < inputLength && input[i + lineLength + 1] == '@') neighbours++;
-            if (i + lineLength < inputLength && input[i + lineLength] == '@') neighbours++;
-            if (i + lineLength - 1 < inputLength && input[i + lineLength - 1] == '@') neighbours++;
-            if (i - 1 >= 0 && input[i - 1] == '@') neighbours++;
+            if (i - lineLength - 1 >= 0           && input[i - lineLength - 1] == '@') neighbours++;
+            if (i - lineLength     >= 0           && input[i - lineLength    ] == '@') neighbours++;
+            if (i - lineLength + 1 >= 0           && input[i - lineLength + 1] == '@') neighbours++;
+            if (                                     input[i              + 1] == '@') neighbours++;
+            if (i + lineLength + 1 <  inputLength && input[i + lineLength + 1] == '@') neighbours++;
+            if (i + lineLength     <  inputLength && input[i + lineLength    ] == '@') neighbours++;
+            if (i + lineLength - 1 <  inputLength && input[i + lineLength - 1] == '@') neighbours++;
+            if (i              - 1 >= 0           && input[i              - 1] == '@') neighbours++;
+
+            // clang-format on
 
             if (neighbours < 4) {
                 removeAgain = true;

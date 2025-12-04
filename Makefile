@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -std=c23
+CFLAGS = -std=c23 -O3
 
 all: 01 02 03 04
 
