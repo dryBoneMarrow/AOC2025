@@ -52,8 +52,7 @@ int main()
         else if (isNewNumber) {
             problems_count++;
             isNewNumber = false;
-        } else
-            isNewNumber = false;
+        }
     }
 
     // Create math problems and fill them with already known information
@@ -120,6 +119,8 @@ int main()
     lineLength++;
 
     // Reset problems
+    // Operators don't _have_ to be reset but as it is very easy to reassign them in the second part
+    // I do this so that both parts work independently
     int j;
     for (i = 0; i < problems_count; i++) {
         for (j = 0; j < line_count - 1; j++) {
