@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -std=c23 -O3 -march=native
 
-all: 01 02 03 04 05 06
+all: 01 02 03 04 05 06 07
 
 01: 01/input 01/main
 02: 02/input 02/main
@@ -9,6 +9,7 @@ all: 01 02 03 04 05 06
 04: 04/input 04/main
 05: 05/input 05/main
 06: 06/input 06/main
+07: 07/input 07/main
 
 01/main: 01/main.c
 	$(CC) 01/main.c -o 01/main $(CFLAGS)
@@ -22,6 +23,8 @@ all: 01 02 03 04 05 06
 	$(CC) 05/main.c -o 05/main $(CFLAGS)
 06/main: 06/main.c
 	$(CC) 06/main.c -o 06/main $(CFLAGS)
+07/main: 07/main.c
+	$(CC) 07/main.c -o 07/main $(CFLAGS)
 	
 clean:
 	rm 01/main
@@ -30,3 +33,4 @@ clean:
 	rm 04/main
 	rm 05/main
 	rm 06/main
+	rm 07/main
