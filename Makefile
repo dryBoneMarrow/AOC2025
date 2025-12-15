@@ -10,9 +10,7 @@ $(CHALLENGES): %: %/input %/main
 %/main: %/main.c
 	$(CC) $< -o $@ $(CFLAGS)
 
-08/main: 08/main.c
-	$(CC) 08/main.c -o 08/main $(CFLAGS) -lm
-	
+
 clean:
 #https://www.gnu.org/software/make/manual/make.html#Substitution-Refs
 	rm -f $(CHALLENGES:%=%/main)

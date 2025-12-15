@@ -1,12 +1,12 @@
-// Uses uniond-find data structure, implementation loosely inspired by https://github.com/luistar/union-find-c/
+// Uses uniond-find data structure, implementation loosely inspired by
+// https://github.com/luistar/union-find-c/
 
-#include <math.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 // Number of connections necessary in part one
-#define connP1 1000
+#define CONN_P1 1000
 
 typedef struct circuit {
     struct circuit* parent;
@@ -21,14 +21,15 @@ typedef struct circuit {
 typedef struct {
     circuit_t* a;
     circuit_t* b;
-    double distance;
+    long unsigned distance;
 } distance_t;
 
-double getDistance(const circuit_t* a, const circuit_t* b)
+long unsigned getDistance(const circuit_t* a, const circuit_t* b)
 {
-    return sqrt((a->coords.x - b->coords.x) * (a->coords.x - b->coords.x)
+    // sqrt is missing but doesn't matter and no math.h like this
+    return (a->coords.x - b->coords.x) * (a->coords.x - b->coords.x)
         + (a->coords.y - b->coords.y) * (a->coords.y - b->coords.y)
-        + (a->coords.z - b->coords.z) * (a->coords.z - b->coords.z));
+        + (a->coords.z - b->coords.z) * (a->coords.z - b->coords.z);
 }
 
 static int compDist(const void* dist1, const void* dist2)
@@ -125,10 +126,10 @@ int main()
     // Part one
     circuit_t *largestCircs[3] = { distances[0].a, distances[1].a, distances[2].a }, *currRep,
               *tempP;
-    for (i = 0; i < connP1; i++) {
+    for (i = 0; i < CONN_P1; i++) {
         mergeCircuits(distances[i].a, distances[i].b);
     }
-    for (i = 0; i < connP1; i++) {
+    for (i = 0; i < CONN_P1; i++) {
     continueOuter:
         currRep = getRepresentative(distances[i].a);
         for (j = 0; j < 3; j++) {
