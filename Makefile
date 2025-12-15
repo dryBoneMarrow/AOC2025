@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -std=c23 -O3 -march=native
 
-CHALLENGES =  01 02 03 04 05 06 07
+CHALLENGES =  01 02 03 04 05 06 07 08
 all: $(CHALLENGES)
 
 # https://www.gnu.org/software/make/manual/make.html#Static-Pattern
@@ -9,6 +9,9 @@ $(CHALLENGES): %: %/input %/main
 
 %/main: %/main.c
 	$(CC) $< -o $@ $(CFLAGS)
+
+08/main: 08/main.c
+	$(CC) 08/main.c -o 08/main $(CFLAGS) -lm
 	
 clean:
 #https://www.gnu.org/software/make/manual/make.html#Substitution-Refs
