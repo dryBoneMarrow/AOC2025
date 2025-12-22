@@ -33,7 +33,7 @@ int overlap(int amin, int amax, int bmin, int bmax)
 int main()
 {
     char input[] = {
-#embed "input"
+#embed "testinput"
         , '\0'
     };
 
@@ -101,15 +101,15 @@ int main()
         }
     }
     // Line between last and first coordinates
-    if (coords[numCoords / 2 - 1].x == coords[0].x) {
+    if (coords[numCoords - 1].x == coords[0].x) {
         verLineP->position = coords[0].x;
-        verLineP->from = (coords[i].y < coords[i - 1].y) ? coords[i].y : coords[i - 1].y;
-        verLineP->to = (coords[i].y < coords[i - 1].y) ? coords[i - 1].y : coords[i].y;
+        verLineP->from = (coords[i - 1].y < coords[0].y) ? coords[i - 1].y : coords[0].y;
+        verLineP->to = (coords[i - 1].y < coords[0].y) ? coords[0].y : coords[i - 1].y;
     }
-    if (coords[numCoords / 2 - 1].y == coords[0].y) {
+    if (coords[numCoords - 1].y == coords[0].y) {
         horLineP->position = coords[0].y;
-        horLineP->from = (coords[i].x < coords[i - 1].x) ? coords[i].x : coords[i - 1].x;
-        horLineP->to = (coords[i].x < coords[i - 1].x) ? coords[i - 1].x : coords[i].x;
+        horLineP->from = (coords[i - 1].x < coords[0].x) ? coords[i - 1].x : coords[0].x;
+        horLineP->to = (coords[i - 1].x < coords[0].x) ? coords[0].x : coords[i - 1].x;
     }
 
     qsort(horLines, numCoords / 2, sizeof(line_t), compLine);
