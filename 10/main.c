@@ -5,7 +5,7 @@
 // Max 9 switches per button (x9) Regex: \((\d+,?){9}\)
 // Max 10 joltages (identical to control lights) (x31) Regex: \{(\d+,?){10}\}
 // Joltage value of 0 possible (x5) Regex: \{(\d+,)+0
-// Jolatge maximum of 3 digits (dec) (x49) Regex: \{(\d+,)*\d{3}
+// Joltage maximum of 3 digits (dec) (x49) Regex: \{(\d+,)*\d{3}
 
 #include <ctype.h>
 #include <stdio.h>
@@ -93,8 +93,8 @@ int main()
     //
     // Part one
     //
-    // I could reuse the logic from Part two (which I've written after obviously) here to imrpove
-    // performance theoretically, but I doubt the difference would be siginificant because of the
+    // I could reuse the logic from Part two (which I've written after obviously) here to improve
+    // performance theoretically, but I doubt the difference would be significant because of the
     // whole overhead with setting up the linear optimization problems etc. _for such small inputs_.
     // If we had bigger inputs (e.g. number of buttons) changing the approach would be appropriate
     //
@@ -109,7 +109,7 @@ int main()
 
     unsigned int result = 0, minSteps, curSteps, curResult;
     for (i = 0; i < numMachines; i++) {
-        // I've let ChatGPT rate thw whole code (_after_ completing it) and it recommended UINT_MAX
+        // I've let ChatGPT rate the whole code (_after_ completing it) and it recommended UINT_MAX
         // instead of ~0 but idk, I like my solution (Code is unreadable anyways especially if
         // reader isn't used to bitwise logic)
         minSteps = ~0;
@@ -136,11 +136,11 @@ int main()
     // each vector represents one button
     // result vector are joltages
 
-    // For overwie on how to use GLPK see poc, example file (both in repo) and refrence manual
+    // For overview on how to use GLPK see poc, example file (both in repo) and reference manual
 
 #ifdef USE_GLPK
     glp_prob* lp;
-    // Indeces of arrays for glpk api start by 1, see refrence manual 2.1.4 (idk why)
+    // Indices of arrays for glpk API start by 1, see reference manual 2.1.4 (idk why)
     int ia[MAX_BUTTONS * MAX_BUTTON_SIZE + 1], ja[MAX_BUTTONS * MAX_BUTTON_SIZE + 1], currIndex;
     double ar[MAX_BUTTONS * MAX_BUTTON_SIZE + 1], z;
     result = 0;
@@ -181,7 +181,7 @@ int main()
         solverSettings.presolve = GLP_ON;
         glp_intopt(lp, &solverSettings);
 
-        // turns out glp_get_obj_val does not return integer result
+        // Turns out glp_get_obj_val does not return integer result
         z = glp_mip_obj_val(lp);
         glp_delete_prob(lp);
         result += z;
