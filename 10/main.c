@@ -14,10 +14,22 @@
 #include <glpk.h>
 #endif
 
+// Those values have to be defined at compile time because they're being used (at least some of
+// them) in the struct definition. An alternative would be to use the heap but I am too lazy for
+// that. If in doubt just increase the values (those are the smallest / correct ones for my input),
+// won't hurt except that it uses more memory than needed
+
+// TLDR: Below works for me
 #define MAX_BUTTONS 13
 #define MAX_BUTTON_SIZE 10
 #define MAX_INDICATOR_LIGHTS 10
 #define MAX_JOLTAGE MAX_INDICATOR_LIGHTS
+
+// TLDR2: Below should work for everyone
+// #define MAX_BUTTONS 50
+// #define MAX_BUTTON_SIZE 50
+// #define MAX_INDICATOR_LIGHTS 50
+// #define MAX_JOLTAGE MAX_INDICATOR_LIGHTS
 
 typedef struct {
     unsigned short indicator_lights;

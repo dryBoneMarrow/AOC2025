@@ -13,7 +13,7 @@ int main(void)
         int ia[1 + 1000], ja[1 + 1000];
         double ar[1 + 1000], z, x1, x2, x3;
 
-        // Create proble, name problem, set goal (maximize)
+        // Create problem, name problem, set goal (maximize)
 s1:     lp = glp_create_prob();
 s2:     glp_set_prob_name(lp, "sample");
 s3:     glp_set_obj_dir(lp, GLP_MAX);
