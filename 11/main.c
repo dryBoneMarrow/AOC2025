@@ -50,7 +50,7 @@ void numToName(int num, char* str)
     str[3] = '\0';
 }
 
-void findPaths1(const device_t* const startNode, const device_t* const endNode,
+void findPaths(const device_t* const startNode, const device_t* const endNode,
     unsigned long long* const counter)
 {
     // Naïve implementation (for now)
@@ -59,7 +59,7 @@ void findPaths1(const device_t* const startNode, const device_t* const endNode,
     // (EETA: Maybe I will because it's kind of unsatisfying to not at least use a cache)
     // (EEETA: Added buffer (and thus a satisfying solution) in part two, thus wontfix)
     for (int i = 0; i < startNode->nOutputs; i++) {
-        findPaths1(startNode->Outputs[i], endNode, counter);
+        findPaths(startNode->Outputs[i], endNode, counter);
     }
     if (startNode->serial == endNode->serial) (*counter)++;
 }
@@ -137,7 +137,7 @@ int main()
 
     int you = YOU, out = OUT;
 #if 1
-    findPaths1(bsearch(&you, devices, numDev, sizeof(*devices), &cmpIntDev),
+    findPaths(bsearch(&you, devices, numDev, sizeof(*devices), &cmpIntDev),
         bsearch(&out, devices, numDev, sizeof(*devices), &cmpIntDev), &result);
     printf("Part one: %llu\n", result);
 #endif

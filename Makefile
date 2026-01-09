@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -std=c23 -O3 -march=native
 # USE_GLPK = OUI
-CHALLENGES =  01 02 03 04 05 06 07 08 09 10
+CHALLENGES =  01 02 03 04 05 06 07 08 09 10 11
 
 all: $(CHALLENGES)
 

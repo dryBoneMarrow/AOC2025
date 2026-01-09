@@ -58,3 +58,4 @@ dkms.conf
 # other
 compile_commands.json
 .harper-dictionary.txt
+.cache/
