@@ -115,7 +115,7 @@ int main()
             currOutput = bsearch(&someDevice, devices, numDev, sizeof(*devices), &cmpIntDev);
             // Handle Output of current device
             deviceP->nOutputs++;
-            deviceP->Outputs = realloc(deviceP->Outputs, sizeof(*devices) * deviceP->nOutputs);
+            deviceP->Outputs = realloc(deviceP->Outputs, sizeof(device_t*) * deviceP->nOutputs);
             deviceP->Outputs[deviceP->nOutputs - 1] = currOutput;
 
             // Handle input from current device
@@ -123,7 +123,7 @@ int main()
             // Actually we don't need the inputs
 #if 0
             currOutput->Inputs
-                = realloc(currOutput->Inputs, sizeof(*devices) * currOutput->nInputs);
+                = realloc(currOutput->Inputs, sizeof(device_t*) * currOutput->nInputs);
             currOutput->Inputs[currOutput->nInputs - 1] = deviceP;
 #endif
 
