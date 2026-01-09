@@ -134,6 +134,7 @@ int main()
     //
     // Part One
     //
+    // not elegant, bad performance
 
     int you = YOU, out = OUT;
 #if 1
@@ -145,6 +146,7 @@ int main()
     //
     // Part two
     //
+    // IMHO really elegant
     int svr = SVR;
     // harper:ignore
     // result = findPaths2(bsearch(&svr, devices, numDev, sizeof(*devices), &cmpIntDev),
