@@ -105,7 +105,7 @@ int main()
                 position += 100 - instruction.turns;
                 continue;
             }
-            puts("What the helly");
+            puts("UIUIUI, das isch aber nöd guet");
 
             // The following 3 lines are taken from ChatGPT after instructiong it to rate my code,
             // unsurprisingly they are wrong per se (had to modify them, semicolons are hard) and on
@@ -133,7 +133,7 @@ int main()
                 position -= 100 - instruction.turns;
                 continue;
             }
-            puts("What the helly");
+            puts("Äuä nöd");
 
             // The following 3 lines are taken from ChatGPT after instructiong it to rate my code,
             // unsurprisingly they are wrong per se (had to modify them, semicolons are hard) and on
@@ -143,7 +143,7 @@ int main()
             // counter += (position +instruction.turns) / 100;
             // position = (position + instruction.turns) % 100;
             // break;
-        default: puts("What the helly");
+        default: puts("Häää");
         }
     }
     // printf("%d\n", position);
