@@ -1,9 +1,13 @@
 CC = cc
-CFLAGS = -std=c23 -O3 -march=native -Wall -Wextra -Wpedantic -fsanitize=address
+CFLAGS = -std=c23 -O3 -march=native
+CFLAGS_DEBUG = -std=c23 -g -Wall -Wextra -Wpedantic -fsanitize=address
 # USE_GLPK = OUI
 CHALLENGES =  01 02 03 04 05 06 07 08 09 10 11 12
 
 all: $(CHALLENGES)
+
+all_debug: CFLAGS := $(CFLAGS_DEBUG)
+all_debug: $(CHALLENGES)
 
 # https://www.gnu.org/software/make/manual/make.html#Static-Pattern
 $(CHALLENGES): %: %/input %/main
