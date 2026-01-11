@@ -160,7 +160,13 @@ int main()
         }
     }
 
+    // Is C23 because standard specifies that any #pragma is allowed an ignored if unknown
+    // We use it here because currX1 and currX2 get assigned for sure (at least once) in the for
+    // loop above
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
     result = currX1 * currX2;
+#pragma GCC diagnostic pop
     printf("Part two: %llu\n", result);
     free(distances);
 }

@@ -158,9 +158,9 @@ int main()
         else
             nUnknown++;
     }
-    printf("Ruled in:\t %d (%f%%)\n"
-           "Ruled out:\t %d (%f%%)\n"
-           "Unknown:\t %d (%f%%)\n",
+    printf("Ruled in:\t %3d (%4.1f%%)\n"
+           "Ruled out:\t %3d (%4.1f%%)\n"
+           "Unknown:\t %3d (%4.1f%%)\n",
         nRuledIn, (double)nRuledIn / numTrees * 100, nRuledOut, (double)nRuledOut / numTrees * 100,
         nUnknown, (double)nUnknown / numTrees * 100);
     if (nUnknown) {
@@ -175,5 +175,5 @@ int main()
     //
     // Part two
     //
-    printf("Part two: 42\n");
+    printf("Part two:  42\n");
 }
