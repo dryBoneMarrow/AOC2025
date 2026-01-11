@@ -133,7 +133,10 @@ int main()
                 position -= 100 - instruction.turns;
                 continue;
             }
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
             puts("Äuä nöd");
+#pragma GCC diagnostic pop
 
             // The following 3 lines are taken from ChatGPT after instructiong it to rate my code,
             // unsurprisingly they are wrong per se (had to modify them, semicolons are hard) and on
